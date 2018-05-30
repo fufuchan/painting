@@ -2,6 +2,7 @@ class Dot {
   PVector pos;
   PVector vel;
   color c;
+  color altC;
   float rotate;
   float size;
   float speed;
@@ -18,7 +19,8 @@ class Dot {
     float sat = random(30, 50);
     float bri = random(90, 100);
     c = color(hue, sat, bri);
-
+    altC = color((hue + 20) % 360, sat, bri);
+    
     // pick a random size
     size = random(50, 100);
 
@@ -58,6 +60,8 @@ class Dot {
   void render() {
     fill(c);
     ellipse(pos.x, pos.y, size, size);
+    fill (altC);
+    ellipse(pos.x, pos.y + 10, size, size);
   }
 
   void draw() {
